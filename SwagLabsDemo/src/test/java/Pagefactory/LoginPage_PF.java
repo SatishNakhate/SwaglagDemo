@@ -27,16 +27,16 @@ public class LoginPage_PF {
     @FindBy(id = "shopping_cart_container")
     WebElement click_cart;
 
-    @FindBy(xpath = "//button[@id='checkout']")
+    @FindBy(id = "checkout")
     WebElement click_Checkout;
 
-    @FindBy(xpath = "//input[@id='first-name']")
+    @FindBy(id = "first-name")
     WebElement txt_FirstName;
 
-    @FindBy(xpath = " //input[@id='last-name']")
+    @FindBy(id = "last-name")
     WebElement txt_LastName;
 
-    @FindBy(xpath = " //input[@id='postal-code']")
+    @FindBy(id = "postal-code")
     WebElement num_Zipcode;
 
     @FindBy(xpath = "//input[@id='continue']")

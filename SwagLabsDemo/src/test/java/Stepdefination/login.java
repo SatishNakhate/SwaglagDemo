@@ -7,10 +7,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,16 +46,15 @@ public class login {
     }
     @When("^User enters (.*) and (.*)$")
     public void user_enters_username_and_password(String username, String password) throws AWTException, InterruptedException {
+        System.out.println("User login successfully");
         login = new LoginPage_PF(driver);
         login.ENTuserName(username);
         login.ENTPassword(password);
         login.LoginButton();
-        Thread.sleep(20000); // wait for popup
+        Thread.sleep(10000);
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.ENTER).perform();
 
     }
 
@@ -68,21 +70,26 @@ public class login {
     //New Scenario - User select the product successfully
     @When("User click on the Add to cart")
     public void user_click_on_the_add_to_cart() {
+        System.out.println("Product is added to cart");
         login = new LoginPage_PF(driver);
         login.clickOnAddToCart();
     }
     @When("click on the cart")
     public void click_on_the_cart() {
+        System.out.println("Cart is open");
         login.clickOnCart();
     }
     @When("click on the checkout")
     public void click_on_the_checkout() {
+        System.out.println("Checkout the project");
         login.clckOnCheckout();
     }
     @When("User Enters {string} and {string} and {string}")
-    public void user_enters_details(String firstname, String lastname, String zipcode) {
-        login.ENTFirstName(firstname);
-        login.ENTlastname(lastname);
+    public void user_enters_details(String Fname, String Lname, String zipcode) throws InterruptedException {
+        System.out.println("User enters deatils ");
+        Thread.sleep(5000);
+        login.ENTFirstName(Fname);
+        login.ENTlastname(Lname);
         login.ENTZipcode(zipcode);
     }
     @When("User click on continue")
