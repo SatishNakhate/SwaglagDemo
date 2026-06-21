@@ -45,6 +45,16 @@ public class LoginPage_PF {
     @FindBy(xpath = " //button[@id='finish']")
     WebElement click_finish;
 
+    @FindBy(xpath = "//button[@id='react-burger-menu-btn']")
+    WebElement click_toggle;
+
+    @FindBy(xpath = "//a[@id='about_sidebar_link']")
+    WebElement click_about;
+
+    @FindBy(xpath = "//a[@id='logout_sidebar_link']")
+    WebElement click_logout;
+
+
 
 
 
@@ -90,4 +100,15 @@ public class LoginPage_PF {
         click_finish.click();
     }
 
+    public void clickToggle(){
+        click_toggle.click();
+    }
+
+    public void clickAbout(){
+        click_about.click();
+    }
+
+    public void clickLogout(){
+        click_logout.click();
+    }
 }

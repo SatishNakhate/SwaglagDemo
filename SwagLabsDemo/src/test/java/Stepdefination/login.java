@@ -81,13 +81,13 @@ public class login {
     }
     @When("click on the checkout")
     public void click_on_the_checkout() {
-        System.out.println("Checkout the project");
+        System.out.println("Checkout the product");
         login.clckOnCheckout();
+        System.out.println(driver.getCurrentUrl());
     }
-    @When("User Enters {string} and {string} and {string}")
-    public void user_enters_details(String Fname, String Lname, String zipcode) throws InterruptedException {
-        System.out.println("User enters deatils ");
-        Thread.sleep(5000);
+    @When("User enter checkout details {string} and {string} and {string}")
+    public void user_enter_checkout_details(String Fname, String Lname, String zipcode) throws InterruptedException {
+        System.out.println("User enters deatils");
         login.ENTFirstName(Fname);
         login.ENTlastname(Lname);
         login.ENTZipcode(zipcode);
@@ -103,6 +103,21 @@ public class login {
     @Then("User navigate to the success page")
     public void user_navigate_to_the_success_page() {
 
+    }
+
+    @When("user click on toggle")
+    public void user_click_on_toggle() {
+        login.clickToggle();
+    }
+    @When("user click on the about page")
+    public void user_click_on_the_about_page() {
+        login.clickAbout();
+    }
+    @Then("user redirect back product inventory page")
+    public void user_redirect_back_product_inventory_page() {
+        driver.navigate().back();
+        login.clickToggle();
+        login.clickLogout();
     }
 
 
